@@ -4,16 +4,14 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
 const session = require("express-session");
-const cookieparser = require("cookie-parser");
 const flash = require("connect-flash");
-const passport = require("passport");
 
 
+app.use(express.static("public"));
 
-//app.use(cookieparser());
 app.use(bodyparser.urlencoded({extended: true}));
-// app.use(session({secret:'Alohomora', resave:true, saveUninitialized:true}));
-// app.use(flash());
+
+
 
 app.set("view engine","ejs");
 
@@ -26,14 +24,29 @@ mongoose
         }
 
     ).then(() => console.log('MongoDB Connected'))
-    .catch(err => console.log(err));
+     .catch(err => console.log(err));
 
-app.use("/",require("./routes/index.js"));
-
-
-
-app.listen(8000,()=>{
-
-    console.log("server started at port 8000");
-
+    app.use(
+        session({
+          secret: 'secret',
+          resave: true,
+          saveUninitialized: true
+        })
+      );
+      
+     
+app.use(flash());
+      
+app.use((req,res,next)=>{
+    res.locals.success_msg = req.flash("success_msg");
+    next();
 });
+
+
+app.use(require("./routes/index.js"));
+app.use(require("./routes/handler.js"));
+
+
+app.use((req,res,next)=> res.status(404).render(e404));
+
+app.listen(8000,()=> console.log("server started at port 8000"));
