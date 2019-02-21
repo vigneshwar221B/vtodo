@@ -19,7 +19,7 @@ h1 {
 }
 
 #heading {
-    background-color: #0062E6;
+    background-color: rgb(87, 152, 238);
     text-align: center;
 }
 
@@ -93,4 +93,10 @@ footer {
     color: white;
     color: rgba(0, 0, 0, 0.5);
     text-align: center;
+}
+
+.bbtn{
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }

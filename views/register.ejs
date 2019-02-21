@@ -2,11 +2,13 @@
 
 <head>
     <title>vtodo</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="/styles/mycss.css">
-</head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
 
+    <link rel="stylesheet" href="/styles/mycss.css">
+    
+</head>
 
 <body>
     <div class="container">
@@ -14,20 +16,23 @@
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                 <div class="card card-signin my-5">
                     <div class="card-body">
-                    <% include ./partials/messages.ejs %>
+                        <% include ./partials/messages.ejs %>
                         <h5 class="card-title text-center">Sign Up</h5>
                         <form class="form-signin" action="/register" method="POST">
                             <div class="form-label-group">
-                            
-                                <input name = "uname" type="text" id="inputname" class="form-control" placeholder="Username" required>
+
+                                <input name="uname" type="text" id="inputname" class="form-control" placeholder="Username"
+                                    required>
                                 <label for="inputname">Username</label>
                             </div>
                             <div class="form-label-group">
-                                <input name="fname" type="text" id="fname" class="form-control" placeholder="Username" required>
+                                <input name="fname" type="text" id="fname" class="form-control" placeholder="Username"
+                                    required>
                                 <label for="fname">First name</label>
                             </div>
                             <div class="form-label-group">
-                                <input name="lname" type="text" id="lname" class="form-control" placeholder="Username" required>
+                                <input name="lname" type="text" id="lname" class="form-control" placeholder="Username"
+                                    required>
                                 <label for="lname">Last name</label>
                             </div>
                             <div class="form-label-group">
@@ -37,8 +42,8 @@
                             </div>
 
                             <div class="form-label-group">
-                                <input name="password"type="password" id="inputPassword" class="form-control" placeholder="Password"
-                                    required>
+                                <input name="password" type="password" id="inputPassword" class="form-control"
+                                    placeholder="Password" required>
                                 <label for="inputPassword">Password</label>
                             </div>
 
@@ -47,7 +52,7 @@
 
                         </form>
                         <br>
-                        Have a account? <a href="/"> log</a> in!
+                        Have a account? <a href="/login"> log</a> in!
                     </div>
 
                 </div>

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/user");
+const User = require("../models/userlist");
 const bcrypt = require('bcryptjs');
 const passport = require("passport");
 
@@ -47,7 +47,8 @@ router.post("/register", (req, res) => {
                     lname: lname,
                     uname: uname,
                     email: email,
-                    password: password
+                    password: password,
+                    clist: ["welcome to todolist"]
                 });
 
                 bcrypt.genSalt(10, (err, salt) => {
