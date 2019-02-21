@@ -38,21 +38,25 @@ mongoose
         })
       );
       
-  //passport configuration
+//passport configuration
   
-  app.use(passport.initialize());
-  app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(flash());
       
 app.use((req,res,next)=>{
     res.locals.success_msg = req.flash("success_msg");
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
     next();
 });
 
 
+
 app.use(require("./routes/index.js"));
 app.use(require("./routes/handler.js"));
+app.use(require("./routes/listhandler"));
 
 
 app.use((req,res,next)=> {
