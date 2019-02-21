@@ -56,7 +56,7 @@ app.use((req,res,next)=>{
 
 app.use(require("./routes/index.js"));
 app.use(require("./routes/handler.js"));
-app.use(require("./routes/listhandler"));
+app.use(require("./routes/listhandler.js"));
 
 
 app.use((req,res,next)=> {

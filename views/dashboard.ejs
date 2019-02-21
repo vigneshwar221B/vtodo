@@ -1,7 +1,7 @@
 <%- include("header") -%>
 
   <div class="box" id="heading">
-    <h1> <%= listTitle %> </h1>
+    <h1> Today </h1>
   </div>
 
   <div class="box">
@@ -12,18 +12,19 @@
       <div class="item">
       
           <input type="checkbox" value = "<%= singleItem._id %>" name = "checkbox" onChange = "this.form.submit()">
+          
             <p> <%=  singleItem.name  %> </p>
     
         </div>
-        <input type= "hidden" name = "listName" value = "<%= listTitle %>"></input>
+        <input type= "hidden" name = "listName" ></input>
     </form>
 
     <% }); %>
       
 
-        <form class="item" action="/users/dashboard" method="post">
+        <form class="item" action="/users/dashboard/add" method="post">
           <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
-          <button type="submit" name="list" value="<%= listTitle %>">+</button>
+          <button type="submit" name="list">+</button>
         </form>
   </div>
 

@@ -21,12 +21,6 @@ const item3 = new Item({
 
 const defaultItems = [item1, item2, item3];
 
-const listSchema = {
-    name: String,
-    items: [itemsSchema]
-};
 
-const List = mongoose.model("List", listSchema);
-
-module.exports.list = List;
 module.exports.item = Item;
+module.exports.defitems = defaultItems;
