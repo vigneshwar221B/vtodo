@@ -2,7 +2,7 @@
 
 A Note app created with **Node Js, MongoDb for database and PassportJs for Authentication.**
 
-To run the app, just change the <ADMIN> and <PASSWORD> in dbkeys.js
+To run the app, just change the ADMIN and PASSWORD in dbkeys.js
 
 ```
 dbPassword = 'mongodb+srv://<ADMIN>:<PASSWORD>@cluster0-tbqz7.mongodb.net/test?retryWrites=true/userdb';
