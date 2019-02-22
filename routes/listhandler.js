@@ -23,25 +23,31 @@ router.get("/users/dashboard", ensureAuthenticated, function (req, res) {
 
 });
 
-
+//adding a item
 router.post("/users/dashboard/add", ensureAuthenticated, function (req, res) {
 
     const itemName = req.body.newItem;
     
-    
-   
-    Item.findOne({ email: req.user.email }, function (err, user) {
-        
-        user.clist.push(itemName)
+    if (itemName != "") {
 
-        user.save(function (err) {
-            if (err) {
-                console.error('ERROR!');
-            }
+        Item.findOne({ email: req.user.email }, function (err, user) {
+
+            user.clist.push(itemName)
+
+            user.save(function (err) {
+                if (err) {
+                    console.error('ERROR!');
+                }
+            });
         });
-    });
+        
+    }
+    
     res.redirect("/users/dashboard");
+
 });
+
+//for deleting a item
 
 router.post("/users/dashboard/delete", ensureAuthenticated, function (req, res) {
     

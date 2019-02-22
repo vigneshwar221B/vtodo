@@ -18,7 +18,7 @@ app.use(bodyparser.urlencoded({
 }));
 
 
-
+//setting view engine
 app.set("view engine", "ejs");
 
 const db = require('./config/dbkeys').mongoURI;
@@ -31,6 +31,8 @@ mongoose
 
     ).then(() => console.log('MongoDB Connected'))
     .catch(err => console.log(err));
+
+//creating a user session
 
 app.use(
     session({
@@ -45,8 +47,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+//connecting flash
 app.use(flash());
 
+//setting global variables
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash("success_msg");
     res.locals.error_msg = req.flash('error_msg');
@@ -54,8 +58,7 @@ app.use((req, res, next) => {
     next();
 });
 
-
-
+//All route handlers
 app.use(require("./routes/index.js"));
 app.use(require("./routes/handler.js"));
 app.use(require("./routes/listhandler.js"));
@@ -67,4 +70,4 @@ app.use((req, res, next) => {
 
 });
 
-app.listen(8000, () => console.log("server started at port 8000"));
+app.listen(5000, () => console.log("server started at port 5000"));

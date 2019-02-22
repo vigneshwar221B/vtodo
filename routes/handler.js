@@ -16,7 +16,7 @@ router.post("/register", (req, res) => {
         password
     } = req.body;
 
-    console.log("uname:"+ uname);
+    
 
     if (password.length < 6) {
         errors.push({
